@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Text, View, Image, StyleSheet } from 'react-native';
 
-import MenuItem from './MenuItem';
-
-export default class MainMenu extends Component {
+export default class MenuItem extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <MenuItem />
-        <MenuItem />
+        <Text style={styles.paragraph}>Makin' Wavez</Text>
+        <Image style={styles.logo} source={require('../assets/icon.png')} />
       </View>
     );
   }
@@ -21,6 +19,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 24,
     backgroundColor: '#2a4780',
-    flexDirection: 'row',
+    width: '50%',
+  },
+  paragraph: {
+    color: '#becce7',
+  },
+  logo: {
+    height: 128,
+    width: 128,
   }
 });
