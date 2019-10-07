@@ -10,8 +10,8 @@ export default class MenuItem extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this._onPressButton}>
-          <Text style={styles.paragraph}>Makin' Wavez</Text>
-          <Image style={styles.logo} source={require('../assets/icon.png')} />
+          <Text style={styles.paragraph}>{this.props.text}</Text>
+          <Image style={styles.logo} source={this.props.imageUri} />
         </TouchableOpacity>
       </View>
     );
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     color: '#becce7',
+    textAlign: 'center',
   },
   logo: {
     height: 128,
