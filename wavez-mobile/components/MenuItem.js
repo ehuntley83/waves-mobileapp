@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
+import { Alert, Image, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
 
 export default class MenuItem extends Component {
+  _onPressButton = () => {
+    Alert.alert(`Menu item ${this.props.menuItemId} pressed`);
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.paragraph}>Makin' Wavez</Text>
-        <Image style={styles.logo} source={require('../assets/icon.png')} />
+        <TouchableOpacity onPress={this._onPressButton}>
+          <Text style={styles.paragraph}>Makin' Wavez</Text>
+          <Image style={styles.logo} source={require('../assets/icon.png')} />
+        </TouchableOpacity>
       </View>
     );
   }

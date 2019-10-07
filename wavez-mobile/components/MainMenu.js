@@ -7,8 +7,8 @@ export default class MainMenu extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <MenuItem />
-        <MenuItem />
+        <MenuItem menuItemId='1' />
+        <MenuItem menuItemId='2' />
       </View>
     );
   }
