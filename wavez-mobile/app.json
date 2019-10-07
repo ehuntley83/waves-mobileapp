@@ -3,16 +3,15 @@
     "name": "wavez-mobile",
     "description": "Wavez mobile app for Android and iOS",
     "slug": "wavez-mobile",
-    "privacy": "public",
-    "sdkVersion": "31.0.0",
+    "privacy": "unlisted",
+    "sdkVersion": "35.0.0",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/wavezsplash.png",
+      "resizeMode": "contain"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
