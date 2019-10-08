@@ -8,10 +8,11 @@ export default class MenuItem extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <TouchableOpacity onPress={this._onPressButton}>
-          <Text style={styles.paragraph}>{this.props.text}</Text>
-          <Image style={styles.logo} source={this.props.imageUri} />
+      <View style={[styles.container, { width: this.props.width }]}>
+        <TouchableOpacity style={styles.button} onPress={this._onPressButton}>
+          <Text style={styles.paragraph}>{this.props.topText}</Text>
+          <Image style={styles.buttonImage} source={this.props.imageUri} />
+          <Text style={styles.paragraph}>{this.props.bottomText}</Text>
         </TouchableOpacity>
       </View>
     );
@@ -22,17 +23,18 @@ export default class MenuItem extends Component {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 24,
     backgroundColor: '#2a4780',
-    width: '50%',
+    margin: 5,
   },
   paragraph: {
     color: '#becce7',
-    textAlign: 'center',
+    fontSize: 20,
   },
-  logo: {
+  button: {
+    alignItems: 'center',
+  },
+  buttonImage: {
     height: 128,
     width: 128,
-  }
+  },
 });
