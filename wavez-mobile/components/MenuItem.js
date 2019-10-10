@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Alert, Image, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
-export default class MenuItem extends Component {
+class MenuItem extends Component {
   _onPressButton = () => {
-    Alert.alert(`Menu item ${this.props.menuItemId} pressed`);
+    this.props.navigation.navigate(this.props.routeName);
   }
 
   render() {
@@ -18,6 +19,10 @@ export default class MenuItem extends Component {
     );
   }
 }
+
+// withNavigation returns a component that wraps MenuItem and passes in the
+// navigation prop
+export default withNavigation(MenuItem);
 
 // todo: move these to a styles file
 const styles = StyleSheet.create({
