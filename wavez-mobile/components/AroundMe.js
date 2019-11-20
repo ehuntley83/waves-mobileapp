@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import MapView from 'react-native-maps';
 import Constants from 'expo-constants';
 
 export default class AroundMe extends Component {
@@ -10,7 +11,7 @@ export default class AroundMe extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.paragraph}>Around Me</Text>
+        <MapView style={styles.mapStyle} />
       </View>
     );
   }
@@ -28,4 +29,8 @@ const styles = StyleSheet.create({
     color: '#becce7',
     fontSize: 20,
   },
+  mapStyle: {
+    width: '100%',
+    height: '100%',
+  }
 });
