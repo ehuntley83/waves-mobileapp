@@ -13,6 +13,17 @@ export default class AroundMe extends Component {
   state = {
     location: null,
     errorMessage: null,
+    testMarkers: [
+      { latitude: 42.054811, longitude: -71.496436 },
+      { latitude: 42.048545, longitude: -71.519142 },
+      { latitude: 42.050878, longitude: -71.518744 },
+      { latitude: 42.032763, longitude: -71.504890 },
+      { latitude: 42.018984, longitude: -71.509221 },
+      { latitude: 42.030872, longitude: -71.463038 },
+      { latitude: 42.061212, longitude: -71.466386 },
+      { latitude: 42.092938, longitude: -71.491277 },
+      { latitude: 42.115545, longitude: -71.487243 }
+    ]
   };
 
   componentWillMount() {
@@ -59,7 +70,18 @@ export default class AroundMe extends Component {
                 latitude: this.state.location.coords.latitude,
                 longitude: this.state.location.coords.longitude
               }}
+              pinColor='blue'
             />
+            {this.state.testMarkers.map(marker => (
+              <MapView.Marker
+                key={marker.latitude + marker.longitude}
+                coordinate={{
+                  latitude: marker.latitude,
+                  longitude: marker.longitude
+                }}
+                pinColor='red'
+              />
+            ))}
           </MapView>
         }
       </View>
