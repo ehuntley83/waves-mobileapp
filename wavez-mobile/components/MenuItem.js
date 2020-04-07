@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View, } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
-class MenuItem extends Component {
+const MenuItem = ({navigation, routeName, width, topText, imageUri, bottomText}) => {
   _onPressButton = () => {
-    this.props.navigation.navigate(this.props.routeName);
+    navigation.navigate(routeName);
   }
 
-  render() {
-    return (
-      <View style={[styles.container, { width: this.props.width }]}>
-        <TouchableOpacity style={styles.button} onPress={this._onPressButton}>
-          <Text style={styles.paragraph}>{this.props.topText}</Text>
-          <Image style={styles.buttonImage} source={this.props.imageUri} />
-          <Text style={styles.paragraph}>{this.props.bottomText}</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+  return (
+    <View style={[styles.container, { width: width }]}>
+      <TouchableOpacity style={styles.button} onPress={this._onPressButton}>
+        <Text style={styles.paragraph}>{topText}</Text>
+        <Image style={styles.buttonImage} source={imageUri} />
+        <Text style={styles.paragraph}>{bottomText}</Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
 
 // withNavigation returns a component that wraps MenuItem and passes in the

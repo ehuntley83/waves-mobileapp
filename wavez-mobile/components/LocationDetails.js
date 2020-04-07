@@ -1,16 +1,18 @@
 import React from 'react';
-import { View, StyleSheet, Text, Platform } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
 
-const Search = () => {
+const LocationDetails = ({navigation}) => {
+  const locationId = navigation.state.params.locationId;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.paragraph}>Search</Text>
+      <Text style={styles.paragraph}>{locationId}</Text>
     </View>
   );
 }
 
-export default Search;
+export default LocationDetails;
 
 // todo: move these to a styles file
 const styles = StyleSheet.create({
