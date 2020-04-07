@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
 
-export default class Sos extends Component {
-  static navigationOptions = {
-    title: 'S.O.S. Contacts',
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.paragraph}>S.O.S.</Text>
-      </View>
-    );
-  }
+const Sos = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.paragraph}>S.O.S.</Text>
+    </View>
+  );
 }
+
+export default Sos;
 
 // todo: move these to a styles file
 const styles = StyleSheet.create({

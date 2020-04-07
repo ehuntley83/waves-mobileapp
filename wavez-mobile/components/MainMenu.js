@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
 import MenuItem from './MenuItem';
@@ -10,21 +10,21 @@ const menuItemImages = {
   sos: require('../assets/sos.png'),
 };
 
-export default class MainMenu extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.menuRow}>
-          <MenuItem menuItemId='1' bottomText='Search Destination' imageUri={menuItemImages.search} routeName='Search' width='98.5%'/>
-        </View>
-        <View style={styles.menuRow}>
-          <MenuItem menuItemId='2' topText='Around' bottomText='Me' imageUri={menuItemImages.compass} routeName='AroundMe' width='48%'/>
-          <MenuItem menuItemId='3' topText='SOS' bottomText='Contacts' imageUri={menuItemImages.sos} routeName='Sos' width='48%'/>
-        </View>
+const MainMenu = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.menuRow}>
+        <MenuItem menuItemId='1' bottomText='Search Destination' imageUri={menuItemImages.search} routeName='Search' width='98.5%'/>
       </View>
-    );
-  }
+      <View style={styles.menuRow}>
+        <MenuItem menuItemId='2' topText='Around' bottomText='Me' imageUri={menuItemImages.compass} routeName='AroundMe' width='48%'/>
+        <MenuItem menuItemId='3' topText='SOS' bottomText='Contacts' imageUri={menuItemImages.sos} routeName='Sos' width='48%'/>
+      </View>
+    </View>
+  );
 }
+
+export default MainMenu;
 
 // todo: move these to a styles file
 const styles = StyleSheet.create({

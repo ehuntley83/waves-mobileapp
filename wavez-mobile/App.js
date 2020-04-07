@@ -1,6 +1,6 @@
 import React from 'react';
 import Constants from 'expo-constants';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import { Card } from 'react-native-paper';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -10,6 +10,7 @@ import MainMenu from './components/MainMenu';
 import Search from './components/Search';
 import AroundMe from './components/AroundMe';
 import Sos from './components/Sos';
+import LocationDetails from './components/LocationDetails';
 
 class App extends React.Component {
   static navigationOptions = {
@@ -29,10 +30,11 @@ class App extends React.Component {
 
 const AppNavigator = createStackNavigator(
   {
-    Home: App,
-    Search: Search,
-    AroundMe: AroundMe,
-    Sos: Sos
+    Home: { screen: App },
+    Search: { screen: Search, navigationOptions: () => ({title: Platform.OS === 'ios' ? 'Search' : 'Search Destination'})},
+    AroundMe: { screen: AroundMe, navigationOptions: () => ({title: 'Around Me'})},
+    Sos: { screen: Sos, navigationOptions: ({ navigation }) => ({ title: 'S.O.S. Contacts' })},
+    LocationDetails: { screen: LocationDetails, navigationOptions: () => ({title: 'Location Details'})}
   },
   {
     initialRouteName: 'Home',

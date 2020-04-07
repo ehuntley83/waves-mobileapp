@@ -6,23 +6,19 @@ import MapView from 'react-native-maps';
 import Constants from 'expo-constants';
 
 export default class AroundMe extends Component {
-  static navigationOptions = {
-    title: 'Around Me',
-  };
-
   state = {
     location: null,
     errorMessage: null,
     testMarkers: [
-      { latitude: 42.054811, longitude: -71.496436 },
-      { latitude: 42.048545, longitude: -71.519142 },
-      { latitude: 42.050878, longitude: -71.518744 },
-      { latitude: 42.032763, longitude: -71.504890 },
-      { latitude: 42.018984, longitude: -71.509221 },
-      { latitude: 42.030872, longitude: -71.463038 },
-      { latitude: 42.061212, longitude: -71.466386 },
-      { latitude: 42.092938, longitude: -71.491277 },
-      { latitude: 42.115545, longitude: -71.487243 }
+      { id: '01', latitude: 42.054811, longitude: -71.496436 },
+      { id: '02', latitude: 42.048545, longitude: -71.519142 },
+      { id: '03', latitude: 42.050878, longitude: -71.518744 },
+      { id: '04', latitude: 42.032763, longitude: -71.504890 },
+      { id: '05', latitude: 42.018984, longitude: -71.509221 },
+      { id: '06', latitude: 42.030872, longitude: -71.463038 },
+      { id: '07', latitude: 42.061212, longitude: -71.466386 },
+      { id: '08', latitude: 42.092938, longitude: -71.491277 },
+      { id: '09', latitude: 42.115545, longitude: -71.487243 }
     ]
   };
 
@@ -80,6 +76,7 @@ export default class AroundMe extends Component {
                   longitude: marker.longitude
                 }}
                 pinColor='red'
+                onPress={() => this.props.navigation.navigate('LocationDetails', { locationId: marker.id })}
               />
             ))}
           </MapView>
