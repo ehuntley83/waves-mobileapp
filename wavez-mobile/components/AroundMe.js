@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
-import MapView from 'react-native-maps';
 import Constants from 'expo-constants';
+import MapView from 'react-native-maps';
+import Popover from 'react-native-popover-view';
+
+import MapMarker from './MapMarker';
 
 export default class AroundMe extends Component {
   state = {
     location: null,
     errorMessage: null,
+    isPopoverVisible: false,
     testMarkers: [
       { id: '01', latitude: 42.054811, longitude: -71.496436 },
       { id: '02', latitude: 42.048545, longitude: -71.519142 },
@@ -44,6 +48,9 @@ export default class AroundMe extends Component {
     this.setState({ location });
   };
 
+  _setPopoverVisible = () => {
+    this.setState({ isPopoverVisible: true });
+  };
 
   render() {
     let text = 'Loading...';
@@ -69,18 +76,19 @@ export default class AroundMe extends Component {
               pinColor='blue'
             />
             {this.state.testMarkers.map(marker => (
-              <MapView.Marker
+              <MapMarker 
                 key={marker.latitude + marker.longitude}
-                coordinate={{
-                  latitude: marker.latitude,
-                  longitude: marker.longitude
-                }}
-                pinColor='red'
-                onPress={() => this.props.navigation.navigate('LocationDetails', { locationId: marker.id })}
-              />
+                marker={marker}
+                onPress={this._setPopoverVisible} />
             ))}
           </MapView>
         }
+
+        <Popover
+          isVisible={this.state.isPopoverVisible}
+          onRequestClose={() => this.setState({isPopoverVisible: false})}>
+          <Text>I'm the content of this popover!</Text>
+        </Popover>
       </View>
     );
   }
